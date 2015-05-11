@@ -292,6 +292,10 @@ enum AVCodecID {
     AV_CODEC_ID_MVC2_DEPRECATED,
     AV_CODEC_ID_HQX,
 
+    /* H264 MVC type */
+    AV_CODEC_ID_H264MVC    = MKBETAG('M','V','C','C'),
+
+
     AV_CODEC_ID_BRENDER_PIX= MKBETAG('B','P','I','X'),
     AV_CODEC_ID_Y41P       = MKBETAG('Y','4','1','P'),
     AV_CODEC_ID_ESCAPE130  = MKBETAG('E','1','3','0'),
