@@ -1334,7 +1334,9 @@ static int mov_read_mvcc(MOVContext *c, AVIOContext *pb, MOVAtom atom)
     n -= 4;
     for (i = 0; i < 4; i++)
         st->codec->extradata[extradata_size+i] = (n >> ((3 - i) << 3)) & 0xff;
-    st->codec->codec_tag = AV_CODEC_ID_H264MVC;
+
+	// Force MVC profile
+    st->codec->profile = FF_PROFILE_H264_HIGH_STEREO;
     return 0;
 }
 

@@ -1671,8 +1671,8 @@ again:
             case NAL_14:
             case NAL_15:
             case NAL_20:
-                av_log(avctx, AV_LOG_ERROR, "NAL type: %d for MVC\n", hx->nal_unit_type);
-                avctx->codec_tag = AV_CODEC_ID_H264MVC;
+				// MVC specific NAL's; force profile
+                avctx->profile = FF_PROFILE_H264_HIGH_STEREO;
                 break;
             case NAL_FF_IGNORE:
                 break;
@@ -1964,6 +1964,9 @@ static const AVProfile profiles[] = {
     { FF_PROFILE_H264_HIGH_444_PREDICTIVE,  "High 4:4:4 Predictive" },
     { FF_PROFILE_H264_HIGH_444_INTRA,       "High 4:4:4 Intra"      },
     { FF_PROFILE_H264_CAVLC_444,            "CAVLC 4:4:4"           },
+    { FF_PROFILE_H264_HIGH_STEREO,          "High Stereo"           },
+    { FF_PROFILE_H264_HIGH_MULTIVIEW,       "High Multiview"        },
+    { FF_PROFILE_H264_HIGH_MULTIVIEW_DEPTH, "High Multiviewi Depth" },
     { FF_PROFILE_UNKNOWN },
 };
 
